@@ -1,8 +1,6 @@
 package CLASES;
 
 public class EnvioInternacional extends Envio {
-    private static final double COSTO_BASE = 180;
-    private static final double TARIFA_KG = 45;
 
     public EnvioInternacional(String numeroGuia, double peso) {
         super(numeroGuia, peso);
@@ -10,11 +8,11 @@ public class EnvioInternacional extends Envio {
 
     @Override
     public double calcularCosto() {
-        return COSTO_BASE + (peso * TARIFA_KG);
+        return 180 + (peso * 45);
     }
 
     @Override
-    public String getTipo() {
-        return "Internacional";
+    public String toString() {
+        return "Internacional | " + super.toString();
     }
 }

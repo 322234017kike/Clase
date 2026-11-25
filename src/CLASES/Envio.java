@@ -1,13 +1,9 @@
 package CLASES;
 
-/**
- * Clase abstracta que representa un envio generico.
- * Contiene lo comun a todos los envios (numero de guia y peso);
- * el calculo del costo lo define cada modalidad.
- */
+/** Clase abstracta: lo comun de todos los envios. */
 public abstract class Envio {
     protected String numeroGuia;
-    protected double peso; // en kg
+    protected double peso;
 
     public Envio(String numeroGuia, double peso) {
         this.numeroGuia = numeroGuia;
@@ -22,17 +18,11 @@ public abstract class Envio {
         return peso;
     }
 
-    /** Costo = CostoBase + (Peso x TarifaKg) segun la modalidad. */
+    // Cada tipo de envio calcula su costo de forma distinta
     public abstract double calcularCosto();
-
-    /** Nombre de la modalidad de envio. */
-    public abstract String getTipo();
 
     @Override
     public String toString() {
-        return "Tipo: " + getTipo()
-                + " | Guia: " + numeroGuia
-                + " | Peso: " + peso + " kg"
-                + " | Costo: $" + String.format("%.2f", calcularCosto());
+        return "Guia: " + numeroGuia + " | Peso: " + peso + " kg";
     }
 }
